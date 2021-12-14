@@ -1,5 +1,7 @@
 use bevy::prelude::*;
 
+mod startup;
+
 fn main() {
     App::build()
     .add_resource(Msaa {samples: 4})
@@ -9,5 +11,9 @@ fn main() {
         height: 1600.0,
         ..Default::default()
     })
-    .add_plugins(DefaultPlugins).run();
+    .add_plugins(DefaultPlugins)
+    .add_startup_system(startup::setup.system())
+    .add_startup_system(startup::create_board.system())
+    .add_startup_system(startup::create_pieces.system())
+    .run();
 }
