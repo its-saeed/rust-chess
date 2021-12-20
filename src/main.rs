@@ -1,31 +1,7 @@
 use bevy::prelude::*;
+use bevy_mod_picking::*;
 
 mod startup;
-
-trait Shape {
-    fn area(&self) -> u32;
-}
-
-struct Rectangle {
-    x: u32,
-    y: u32,
-}
-
-struct Circle {
-    radius: f64,
-}
-
-impl Shape for Rectangle {
-    fn area(&self) -> u32 {
-        self.x * self.y
-    }
-}
-
-impl Shape for Circle {
-    fn area(&self) -> u32 {
-        (self.radius * self.radius * 3.14) as u32
-    }
-}
 
 fn main() {
     App::build()
@@ -37,6 +13,7 @@ fn main() {
         ..Default::default()
     })
     .add_plugins(DefaultPlugins)
+    .add_plugin(PickingPlugin)
     .add_startup_system(startup::setup.system())
     .add_startup_system(startup::create_board.system())
     .add_startup_system(startup::create_pieces.system())

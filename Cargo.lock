@@ -204,6 +204,7 @@ name = "bevy-chess"
 version = "0.1.0"
 dependencies = [
  "bevy",
+ "bevy_mod_picking",
 ]
 
 [[package]]
@@ -455,6 +456,15 @@ checksum = "cee6066dc393c913f3eb8873c3d3978010b1664b5947f6fa38c28be326da9735"
 dependencies = [
  "bevy_reflect",
  "glam 0.11.3",
+]
+
+[[package]]
+name = "bevy_mod_picking"
+version = "0.3.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d54160ba928673ba10f8b615a53de23981fa57cd5e4768f960da439a12417ec4"
+dependencies = [
+ "bevy",
 ]
 
 [[package]]

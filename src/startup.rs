@@ -1,4 +1,5 @@
 use bevy::prelude::*;
+use bevy_mod_picking::{PickSource, PickableMesh};
 
 pub fn setup(
     commands: &mut Commands,
@@ -11,7 +12,7 @@ pub fn setup(
                 Vec3::new(-7.0, 20.0, 4.0),
             )),
             ..Default::default()
-        })
+        }).with(PickSource::default())
         // Light
         .spawn(LightBundle {
             transform: Transform::from_translation(Vec3::new(4.0, 8.0, 4.0)),
@@ -41,7 +42,7 @@ pub fn create_board(
                     transform: Transform::from_translation(Vec3::new(i as f32, 0.0, j as f32)),
                     ..Default::default()
                 }
-            );
+            ).with(PickableMesh::default());
         }
     }
 }
