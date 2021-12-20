@@ -2,6 +2,8 @@ use bevy::prelude::*;
 use bevy_mod_picking::*;
 
 mod startup;
+mod pieces;
+mod board;
 
 fn main() {
     App::build()
@@ -15,7 +17,7 @@ fn main() {
     .add_plugins(DefaultPlugins)
     .add_plugin(PickingPlugin)
     .add_startup_system(startup::setup.system())
-    .add_startup_system(startup::create_board.system())
-    .add_startup_system(startup::create_pieces.system())
+    .add_startup_system(board::create_board.system())
+    .add_startup_system(pieces::create_pieces.system())
     .run();
 }
